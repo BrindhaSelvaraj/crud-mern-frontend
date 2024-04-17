@@ -1,0 +1,207 @@
+
+.homePage{
+    animation: slideIn 1s ease-in;
+}
+
+.home-header {
+    width: 100vw;
+    padding: 1rem;
+    background-color: #3E4095;
+    text-align: center;
+}
+
+.home-header h1 {
+    color: white;
+    letter-spacing: 0.2rem;
+}
+
+.home-header nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 0.5rem;
+}
+
+.home-header nav p {
+    color: white;
+    font-size: 1.5rem;
+}
+
+.blink {
+    animation: changeColor 2s ease-in-out 0s infinite normal;
+}
+
+@keyframes changeColor {
+    20% {
+        background-color: #4d4f96;
+    }
+    50% {
+        background-color: #212242;
+    }
+
+    80% {
+        background-color: #030438;
+    }
+}
+
+.blink:hover {
+    animation: none;
+}
+
+.home-nav {
+    color: white;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 0.8rem;
+    background-color: #27286b;
+    padding: 0.5rem;
+    border-radius: 10px;
+}
+
+.home-section-2 {
+    width: 80vw;
+    margin: 1rem auto;
+}
+
+.home-section-2 p {
+    font-weight: 400;
+    margin: 0.5rem auto;
+}
+
+
+.home-section-2 h2 {
+    color: #27286b;
+    font-size: 2rem;
+}
+
+.home-section-2 h3 {
+    margin-bottom: 1rem;
+    color: #b67735;
+}
+
+.getStarted {
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 1rem;
+    padding: 0.5rem;
+    margin: 0.5rem auto;
+}
+
+#carosel {
+    display: none;
+}
+
+.getStarted-btn {
+    display: none;
+}
+
+@media only screen and (min-width: 600px) {
+    .home-header {
+        padding: 0.5rem 5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: linear-gradient(#020320, #8081c900);
+        height: 20vh;
+        position: absolute;
+        top: 0;
+        z-index: 2;
+    }
+
+    .home-header nav {
+        gap: 1rem
+    }
+
+    .home-nav {
+        font-weight: 500;
+        font-size: 1rem;
+        background-color: #27286b;
+        padding: 1rem;
+        cursor: pointer;
+        transition: all 1s;
+    }
+
+    .home-nav:hover {
+        background-color: #5a5b9e;
+    }
+
+    .home-nav-desktop {
+        font-weight: 500;
+        font-size: 1rem;
+        background-color: #e07c10;
+        color: white;
+        text-decoration: none;
+        border-radius: 10px;
+        padding: 1rem;
+        transition: all 1s;
+    }
+
+    .home-nav-desktop:hover {
+        color: #e07c10;
+        background-color: white;
+    }
+
+    .home-sectionBackground, .home-sectionBackground-Plain {
+        position: absolute;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: #27286b;
+        opacity: 85%;
+    }
+
+    .home-sectionBackground-Plain {
+        opacity: 1;
+    }
+
+    .home-section-2 {
+        display: none;
+    }
+
+    #carosel {
+        display: block;
+    }
+
+    .getStarted-btn {
+        display: block;
+        position: absolute;
+        bottom: 13vh;
+        left: 45vw;
+    }
+
+    .sectionCarousels {
+        position: absolute;
+        top: 9vh;
+        left: 15vw;
+        z-index: 2;
+        width: 70vw;
+        padding: 5rem
+    }
+
+    .sectionCarousels p {
+        font-size: 2vw;
+        margin: 1rem auto;
+        color: white;
+    }
+
+    .sectionCarousels h2 {
+        font-size: 3vw;
+        font-weight: 400;
+        color: #f79226;
+    }
+
+    .sectionCarousels h3 {
+        font-size: 2.2vw;
+        font-weight: 400;
+        margin-top: 2rem;
+        color:#e2b88a;
+    }
+
+    .img-container {
+        width: 100vw;
+        height: 100vh;
+    }
+    
+}

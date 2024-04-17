@@ -1,0 +1,228 @@
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'system ui';
+}
+
+.login-header {
+    width: 20vw;
+    margin: 2rem auto;
+}
+
+.login-header img {
+    width: 100%;
+}
+
+.login-main {
+    margin: 1rem auto;
+    width: 80vw;
+    text-align: center;
+}
+
+
+.task-header img {
+    width: 50%;
+}
+
+.main-section {
+    animation: slideIn 1s ease-in;
+}
+
+.errmsg {
+    background-color: #f3d0d0;
+    color: red;
+    padding: 0.2rem;
+    margin: 0.3rem auto 0 auto;
+    text-align: center;
+    width: 80%;
+    font-weight: 500;
+}
+
+.offscreen {
+    position: absolute;
+    visibility: hidden;
+}
+
+.create-account-paragraph {
+    margin-top: 1rem;
+    font-weight: 500;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    color: #0febcd;
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 20%;
+    }
+    100% {
+        opacity: 100%;
+    }
+}
+
+.login-main h1, .login-main p {
+    font-weight: 300;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 1rem auto;
+    position: relative;
+}
+
+.login-form input, .login-form button {
+    padding: 0.8rem 0.5rem;
+    margin-bottom: 0.8rem;
+    color: grey;
+    border-radius: 5px;
+    border: 1px solid grey;
+    width: 80%;
+    position: relative;
+}
+
+#no-username, #no-usermail, #no-userpwd, #no-matchpwd {
+    border: 1px solid red;
+}
+
+#username, #usermail, #userpwd, #usermatch {
+    border: 1px solid #7cc703;
+}
+
+.input-description, .eyeclass {
+    margin-top: -0.5rem;
+    margin-bottom: 0.7rem;
+    font-size: 13px;
+    font-style: italic;
+    color: #7e6868;
+}
+
+.eyeclass {
+    cursor: pointer;
+    color: #a19e9e;
+}
+
+.eyeclass:hover {
+    color: #cc7c7c;
+}
+
+
+.login-form button {
+    background-color: #2950cf;
+    border: none;
+    color: white;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.login-form button:hover {
+    background-color: #080e6d;
+}
+
+.login-span {
+    cursor: pointer;
+    color: #3E4095;
+}
+
+.side-panel {
+    display: none;
+}
+
+
+@media only screen and (min-width: 600px) {
+
+
+    .login-header {
+        width: 10vw;
+        position: absolute;
+        top: 2rem;
+        left: 4rem;
+    }
+
+    .login-main {
+        display: flex;
+        justify-content: center;
+        width: 100vw;
+        margin-top: 0;
+    }
+
+    
+
+    .main-section {
+        width: 70%;
+        margin: 7rem auto 0 auto;
+    }
+
+    .sign-up {
+        margin-top: 5rem;
+    }
+    
+
+    .main-section h1 {
+        font-size: 2.5rem;
+        font-weight: 400;
+        color: rgb(70, 69, 69);
+    }
+
+    .heading-paragraph {
+        font-size: 1.5rem;
+        font-style: italic;
+    }
+
+    .login-form {
+        width: 50%;
+    }
+
+    .errmsg {
+        width: 40%;
+    }
+
+    .side-panel-back {
+        width: 30vw;
+        height: 100vh;
+        background: linear-gradient(#fce7d0, #f8d4ae);
+        position: absolute;
+        right: 0;
+    }
+
+    .side-panel-back2 {
+        background-image: url('/public/images/taskbit.png');
+        background-size: contain;
+        height: 100vh;
+        width: 30%;
+        position: absolute;
+        right: 0;
+    }
+
+    .side-panel {
+        display: block;
+        text-align: center;
+        padding: 2rem;
+        position: relative;
+    }
+
+    .side-h3 {
+        margin-top: 5rem;
+        margin-bottom: 1rem;
+        font-weight: 400;
+        text-transform: uppercase;
+        color: #660259;
+    }
+
+    .side-panel p {
+        border-radius: 20px;
+        padding: 1.2rem;
+        background: rgba(250, 240, 229, 0.8);
+        margin-bottom: 1.5rem;
+        box-shadow: 5px 2px 3px #949090;
+    }
+}
