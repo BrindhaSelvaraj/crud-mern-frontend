@@ -7,7 +7,7 @@ const CreateTask = ({progress}) => {
 
     const dispatch = useDispatch();
 
-    const [create, setCreate] = useState(false)
+    const [create, setCreate] = useState(false) 
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const [deadline, setDeadline] = useState('')
@@ -28,7 +28,8 @@ const CreateTask = ({progress}) => {
                     title: title,
                     description: description,
                     deadline: deadline + ", " + time,
-                    isDone: false
+                    isDone: false,
+                    email:window.localStorage.getItem("email")
                 }), 
                 {
                     headers: { 'Content-Type': 'application/json'},

@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faRotate, faChevronUp, faChevronDown  } from '@fortawesome/free-solid-svg-icons';
 import { editTask, updateTask, deleteTask } from '../redux/action/action';
+
 import axios from '../api/axios';
 import './tasks.css'
 
@@ -31,7 +32,8 @@ const Task = ({_id, title, description, deadline, isDone}) => {
                     title: editTitle,
                     description: editDescription,
                     deadline: editDeadline + ", " + editTime,
-                    isDone: false
+                    isDone: false,
+                    email:window.localStorage.getItem("email")
                 }),
                 {
                     headers: { 'Content-Type': 'application/json'},
@@ -43,7 +45,8 @@ const Task = ({_id, title, description, deadline, isDone}) => {
                 title: editTitle,
                 description: editDescription,
                 deadline: editDeadline + ", " + editTime,
-                isDone: false
+                isDone: false,
+                email:window.localStorage.getItem("email")
             }))
         }
         catch (error){
@@ -58,10 +61,11 @@ const Task = ({_id, title, description, deadline, isDone}) => {
     const handleUpdateStatus = async () => {
         
         try{
-            const response = await axios.patch('/api/tasks/status',
+            const response = await axios.patch('http://localhost:5000/api/tasks/status',
                 JSON.stringify({
                     _id,
-                    isDone: !isDone
+                    isDone: !isDone,
+                    email:window.localStorage.getItem("email")
                 }),
                 {
                     headers: { 'Content-Type': 'application/json'},
@@ -73,25 +77,29 @@ const Task = ({_id, title, description, deadline, isDone}) => {
                 title,
                 description,
                 deadline,
-                isDone: !isDone
+                isDone: !isDone,
+                email:window.localStorage.getItem("email"),
+                
             }))
         }
         catch (error){
             console.log(error)
         }
+        window.location.reload();
     }
 
     
     //this function handles deleting of tasks, it sends it to the backend and updates the redux store.
     const handleDeleteTask = async () => {
         try {
-            const response = await axios.patch('/api/tasks/delete', 
+            const response = await axios.patch('http://localhost:5000/api/tasks/delete', 
                 JSON.stringify({
                     title,
                     description,
                     deadline,
                     isDone,
-                    _id
+                    _id,
+                    email:window.localStorage.getItem("email")
                 }),
                 {
                     headers: { 'Content-Type': 'application/json'},
@@ -104,7 +112,8 @@ const Task = ({_id, title, description, deadline, isDone}) => {
                 title,
                 description,
                 deadline,
-                isDone
+                isDone,
+                email:window.localStorage.getItem("email")
             }))
 
         } catch (error) {
@@ -112,6 +121,7 @@ const Task = ({_id, title, description, deadline, isDone}) => {
         }        
 
         setOpenDelete(!openDelete)
+        window.location.reload();
     }
 
     //sets the title and description of the current task in the edit task inputs.
