@@ -85,7 +85,7 @@ const Task = ({_id, title, description, deadline, isDone}) => {
         catch (error){
             console.log(error)
         }
-       
+        window.location.reload();
     }
 
     
@@ -121,7 +121,7 @@ const Task = ({_id, title, description, deadline, isDone}) => {
         }        
 
         setOpenDelete(!openDelete)
-       
+        window.location.reload();
     }
 
     //sets the title and description of the current task in the edit task inputs.
