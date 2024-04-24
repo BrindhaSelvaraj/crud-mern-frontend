@@ -60,7 +60,7 @@ input[type="text"], input[type="password"], input[type="date"], input[type="time
     align-items: center;
     background-color: #af2fa9;
     padding: 0.5rem 1rem;
-    color: white;
+    color: rgb(20, 20, 20);
     border-radius: 10px;
 }
 
@@ -127,11 +127,11 @@ input[type="text"], input[type="password"], input[type="date"], input[type="time
 }
 
 .view-sorting-section p:hover {
-    color: #a5d1ab;
+    color: #2f6e38;
 }
 
 .create:hover {
-    color:#a7a7e7;
+    color:#9494c7;
 }
 
 
@@ -239,7 +239,7 @@ input[type="text"], input[type="password"], input[type="date"], input[type="time
     z-index: 2;
     right: 0;
     top: 1.7rem;
-    background-color: #e0de69;
+    background-color: #20b3b8;
     padding: 0.5rem;
     border-radius: 5px;
     width: 40vw;

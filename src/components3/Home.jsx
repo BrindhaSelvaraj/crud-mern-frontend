@@ -53,11 +53,7 @@ const Home = () => {
                                     Create a free account
                                 </Link>
                             </div>
-                            <div>
-                                <Link to="/tasks" className="home-nav">
-                                    Create Projects/Tasks
-                                </Link>
-                            </div>
+                            
                             <div>
                                 <Link to="/login" className="home-nav">
                                     Login

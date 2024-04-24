@@ -25,6 +25,7 @@ const SignUp = () => {
     const [matchPwd, setMatchPwd] = useState('');
     const [validMatch, setValidMatch] = useState(false);
     const [errMsg, setErrMsg] = useState('');
+    const [loading, setLoading] = useState(false); // State for loading indicator
 
     useEffect(() => {
         userNameRef.current.focus();
@@ -49,6 +50,7 @@ const SignUp = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true); // Start loading indicator on form submission
         try {
             const response = await axios.post(
                 '/api/signup',
@@ -64,7 +66,7 @@ const SignUp = () => {
             );
 
             console.log(response.data);
-            navigate('/login');
+            navigate('/login'); // Redirect to login page after successful signup
         } catch (error) {
             if (!error.response) {
                 setErrMsg('No server response');
@@ -76,6 +78,8 @@ const SignUp = () => {
             if (errRef.current) {
                 errRef.current.focus();
             }
+        } finally {
+            setLoading(false); // Stop loading indicator after signup attempt (success or error)
         }
     };
 
@@ -101,6 +105,7 @@ const SignUp = () => {
                     <div className='form-container'>
                         <form id='login-form' className='login-form' onSubmit={handleSubmit}>
 
+                            {/* Username input */}
                             <input
                                 type='text'
                                 id={validName ? 'username' : !validName && user ? 'no-username' : 'iduser'}
@@ -111,11 +116,13 @@ const SignUp = () => {
                                 autoComplete='off'
                                 required
                             />
+                            {/* Username input description */}
                             <p className={!validName && user ? 'input-description' : 'offscreen'}>
                                 Username may be 4 to 32 characters & must begin with a letter <br/>
                                 Letters, numbers, underscore, hyphens allowed.
                             </p>
 
+                            {/* Email input */}
                             <input
                                 type='email'
                                 id={validEmail ? 'usermail' : !validEmail && userEmail ? 'no-usermail' : 'idemail'}
@@ -125,6 +132,7 @@ const SignUp = () => {
                                 required
                             />
                     
+                            {/* Password input */}
                             <input
                                 type={pwdVisibility ? 'text' : 'password'}
                                 id={validPwd ? 'userpwd' : !validPwd && pwd ? 'no-userpwd' : 'idpwd'}
@@ -133,11 +141,13 @@ const SignUp = () => {
                                 placeholder='Password'
                                 required
                             />
+                            {/* Password input description */}
                             <p className={!validPwd && pwd ? 'input-description' : 'offscreen'}>
                                 Password should be 8 to 24 characters.<br />
                                 Must include at least one uppercase, one lowercase, and a number.
                             </p>
 
+                            {/* Confirm Password input */}
                             <input
                                 type={pwdVisibility ? 'text' : 'password'}
                                 id={validMatch && matchPwd ? 'usermatch' : !validMatch && matchPwd ? 'no-matchpwd' : 'idmatch'}
@@ -146,19 +156,21 @@ const SignUp = () => {
                                 onChange={(e) => setMatchPwd(e.target.value)}
                                 required
                             />
+                            {/* Confirm Password input description */}
                             <p className={!validMatch && matchPwd ? 'input-description' : 'offscreen'}>
                                 Must match the first password
                             </p>
-                            {   
-                                pwd &&
-                                (
-                                    !pwdVisibility ?
-                                    <p onClick={handleVisiblePwd} className='eyeclass'>{closeEye} Click to view password </p> : 
-                                    <p onClick={handleVisiblePwd} className='eyeclass'>{openEye} Click to hide password </p>
-                                )
-                            }
+                            
+                            {/* Toggle password visibility button */}
+                            {pwd &&
+                            (
+                                !pwdVisibility ?
+                                <p onClick={handleVisiblePwd} className='eyeclass'>{closeEye} Click to view password </p> : 
+                                <p onClick={handleVisiblePwd} className='eyeclass'>{openEye} Click to hide password </p>
+                            )}
 
-                            <button type='submit'>Create Account</button>
+                            {/* Submit button with loading indicator */}
+                            <button type='submit'>{loading ? 'Creating Account...' : 'Create Account'}</button>
 
                         </form>
 
