@@ -16,6 +16,8 @@ const LogIn = () => {
     useEffect(() => {
         // Focus on the email input field when the component mounts
         userRef.current.focus();
+        window.localStorage.removeItem('email');
+       // window.location.reload()
     }, []);
 
     const handleLogin = async (e) => {
